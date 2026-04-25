@@ -30,9 +30,9 @@ export default defineConfig({
 })
 ```
 
-For example, if your repo URL is `https://github.com/username/opticode-website`, set:
+For example, if your repo URL is `https://github.com/username/trustpulse-website`, set:
 ```js
-base: '/opticode-website/',
+base: '/trustpulse-website/',
 ```
 
 ### Step 2 — Push to GitHub
