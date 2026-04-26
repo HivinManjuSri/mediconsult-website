@@ -2,13 +2,13 @@
 
 /* SITE CONTENT - Replace this object for other groups */
 const SITE = {
-  projectTitle: 'TrustPulse',
+  projectTitle: 'MEDIconsult',
   projectSubtitle: 'Doctor Verification for Online Consultations',
   projectTagline: 'A Zero Trust telehealth platform that continuously verifies clinicians so patients can trust who is on the other side of the consultation.',
   groupNo: '25-26J-046',
   institution: 'Sri Lanka Institute of Information Technology (SLIIT)',
   department: 'Department of Computer Systems Engineering',
-  cdapUrl: 'http://cdap.sliit.lk/',
+  
 
   abstract: `Remote healthcare consultations require strong assurance that the doctor who logs in is the same authorized clinician who remains active throughout the session. Traditional login methods such as passwords, OTPs, and two-factor authentication verify identity only at the start, but they do not continuously validate the doctor during the live consultation. This research addresses that limitation by applying a Zero Trust approach with continuous biometric and behavioral authentication for telehealth environments.`,
 
@@ -183,7 +183,7 @@ const SITE = {
     { id: 3, title: 'Progress Presentation II', date: 'Mar 2026', status: 'done', desc: 'Core components implemented. Evaluation data implemented. 90% of the project is finished.' },
     { id: 4, title: 'Final Assessment', date: 'May 2026', status: 'upcoming', desc: 'Final platform integration, evaluation, and project demonstration.' },
     { id: 5, title: 'Research Paper Submission', date: 'May 2026', status: 'upcoming', desc: 'Research paper preparation and submission planned.' },
-    { id: 6, title: 'Viva', date: 'Jul 2026', status: 'upcoming', desc: 'Defence of research contributions and live demonstration of the TrustPulse platform.' },
+    { id: 6, title: 'Viva', date: 'Jul 2026', status: 'upcoming', desc: 'Defence of research contributions and live demonstration of the MEDIconsult platform.' },
   ],
 
   documents: [
@@ -308,7 +308,7 @@ function Navbar({ active, scrollTo }) {
           color: 'var(--black)', background: 'none', border: 'none', cursor: 'pointer',
           letterSpacing: '-0.03em',
         }}>
-          Trust<span style={{ color: 'var(--accent)' }}>Pulse</span>
+          MEDI<span style={{ color: 'var(--accent)' }}>consult</span>
         </button>
 
         <div style={{ display: 'flex', gap: 4 }} className="desktop-nav">
@@ -955,14 +955,14 @@ function Contact() {
         <SectionHeader
           tag="Contact"
           title="Get in Touch"
-          subtitle="Reach out to the TrustPulse research team for questions, collaborations, or more information about the platform."
+          subtitle="Reach out to the MEDIconsult research team for questions, collaborations, or more information about the platform."
         />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
           <div style={{
             background: 'var(--black)', borderRadius: 'var(--radius-xl)',
             padding: '40px', color: 'var(--white)',
           }}>
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 700, marginBottom: 12 }}>TrustPulse Research</h3>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 700, marginBottom: 12 }}>MEDIconsult Research</h3>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 24 }}>
               {SITE.institution}<br />{SITE.department}<br />Malabe, Sri Lanka
             </p>
@@ -988,7 +988,7 @@ function Contact() {
               onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-light)'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
               >
-                CDAP Repository - {SITE.cdapUrl}
+                
               </a>
             </div>
           </div>
@@ -1039,7 +1039,7 @@ function Footer({ scrollTo }) {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
         <div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 700, color: 'var(--white)', marginBottom: 4 }}>
-            Trust<span style={{ color: 'var(--accent-light)' }}>Pulse</span>
+            MEDI<span style={{ color: 'var(--accent-light)' }}>consult</span>
           </div>
           <div style={{ fontSize: '13px' }}>
             Group {SITE.groupNo} - {SITE.institution}
@@ -1060,7 +1060,7 @@ function Footer({ scrollTo }) {
           ))}
         </div>
         <div style={{ fontSize: '12px', textAlign: 'right', marginLeft: 'auto', maxWidth: 280, lineHeight: 1.6 }}>
-          © 2026 TrustPulse Research Team<br />BSc (Hons) in IT<br />Specializing in Cybersecurity, SLIIT
+          © 2026 MEDIconsult Research Team<br />BSc (Hons) in IT<br />Specializing in Cybersecurity, SLIIT
         </div>
       </div>
     </footer>

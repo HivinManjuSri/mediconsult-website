@@ -30,9 +30,9 @@ export default defineConfig({
 })
 ```
 
-For example, if your repo URL is `https://github.com/username/trustpulse-website`, set:
+For example, if your repo URL is `https://github.com/username/mediconsult-website`, set:
 ```js
-base: '/trustpulse-website/',
+base: '/mediconsult-website/',
 ```
 
 ### Step 2 — Push to GitHub
