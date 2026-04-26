@@ -1,4 +1,4 @@
-# OptiCode — Research Project Website
+# MEDIconsult — Research Project Website
 
 A professional Apple-style React website for the OptiCode final-year research project at SLIIT.
 
