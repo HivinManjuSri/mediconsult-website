@@ -1,4 +1,10 @@
 ﻿import { useState, useEffect } from 'react'
+import hivinImage from '../member_face/Hivin Mnaju Sri.png'
+import senarthImage from '../member_face/Senarth  Rajapakse.jpeg'
+import pahansaraImage from '../member_face/Pahansara Sithmini.png'
+import pavaniImage from '../member_face/Pawani roziro.png'
+
+const CONTACT_EMAIL = 'hivinmanjusri@gmail.com'
 
 /* SITE CONTENT - Replace this object for other groups */
 const SITE = {
@@ -214,8 +220,9 @@ const SITE = {
       name: 'Hivin Manju Sri',
       id: 'IT22576552',
       role: 'Group Team Leader',
-      email: 'it22576552@my.read.lk',
+      email: 'hivinmanjusri@gmail.com',
       initials: 'HM',
+      image: hivinImage,
       color: '#0066cc',
       type: 'member',
     },
@@ -223,17 +230,19 @@ const SITE = {
       name: 'Senarth Rajapakse',
       id: 'IT22602664',
       role: 'Team Member',
-      email: 'it22602664@my.read.lk',
+      email: 'senathrajapaksemail@gmail.com',
       initials: 'SR',
+      image: senarthImage,
       color: '#1a7f4f',
       type: 'member',
     },
     {
-      name: 'pahansara Dias',
+      name: 'Pahansara Dias',
       id: 'IT22133090',
       role: 'Team Member',
-      email: 'it22133090@my.read.lk',
+      email: 'pahansara.s@gmail.com',
       initials: 'PD',
+      image: pahansaraImage,
       color: '#7c3aed',
       type: 'member',
     },
@@ -241,8 +250,9 @@ const SITE = {
       name: 'Pavani Rozairo',
       id: 'IT22194008',
       role: 'Team Member',
-      email: 'it22194008@my.read.lk',
+      email: 'rozairopawani001@gmail.com',
       initials: 'PR',
+      image: pavaniImage,
       color: '#b45309',
       type: 'member',
     },
@@ -877,51 +887,66 @@ function Team() {
   const members = SITE.team.filter(m => m.type === 'member')
   const supervisors = SITE.team.filter(m => m.type === 'supervisor')
 
-  const MemberCard = ({ person, large }) => (
-    <div style={{
-      background: 'var(--white)', borderRadius: 'var(--radius-lg)',
-      border: '0.5px solid var(--gray-200)', padding: '24px',
-      transition: 'all 0.25s',
-    }}
-    onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.07)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-    onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none' }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-        <div style={{
-          width: large ? 52 : 44, height: large ? 52 : 44,
-          borderRadius: '50%', flexShrink: 0,
-          background: `${person.color}18`,
-          border: `2px solid ${person.color}30`,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: 700,
-          color: person.color,
-        }}>
-          {person.initials}
-        </div>
-        <div>
-          <div style={{ fontSize: '15px', fontWeight: 500, color: 'var(--gray-800)' }}>{person.name}</div>
-          {person.id && <div style={{ fontSize: '12px', color: 'var(--gray-400)', marginTop: 1 }}>{person.id}</div>}
-        </div>
-      </div>
+  const MemberCard = ({ person, large }) => {
+    const [imageFailed, setImageFailed] = useState(false)
+    const showImage = person.image && !imageFailed
+    const avatarSize = large ? 52 : 44
+
+    return (
       <div style={{
-        fontSize: '12px', fontWeight: 500,
-        color: person.color,
-        background: `${person.color}10`,
-        display: 'inline-block', padding: '3px 10px', borderRadius: 20, marginBottom: 10,
-      }}>
-        {person.role}
-      </div>
-      <a href={`mailto:${person.email}`} style={{
-        display: 'block', fontSize: '13px', color: 'var(--gray-400)',
-        transition: 'color 0.2s',
+        background: 'var(--white)', borderRadius: 'var(--radius-lg)',
+        border: '0.5px solid var(--gray-200)', padding: '24px',
+        transition: 'all 0.25s',
       }}
-      onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
-      onMouseLeave={e => e.currentTarget.style.color = 'var(--gray-400)'}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.07)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none' }}
       >
-        {person.email}
-      </a>
-    </div>
-  )
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
+          <div style={{
+            width: avatarSize, height: avatarSize,
+            borderRadius: '50%', flexShrink: 0,
+            background: `${person.color}18`,
+            border: `2px solid ${person.color}30`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: 700,
+            color: person.color, overflow: 'hidden',
+          }}>
+            {showImage ? (
+              <img
+                src={person.image}
+                alt={`${person.name} profile`}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                onError={() => setImageFailed(true)}
+              />
+            ) : (
+              person.initials
+            )}
+          </div>
+          <div>
+            <div style={{ fontSize: '15px', fontWeight: 500, color: 'var(--gray-800)' }}>{person.name}</div>
+            {person.id && <div style={{ fontSize: '12px', color: 'var(--gray-400)', marginTop: 1 }}>{person.id}</div>}
+          </div>
+        </div>
+        <div style={{
+          fontSize: '12px', fontWeight: 500,
+          color: person.color,
+          background: `${person.color}10`,
+          display: 'inline-block', padding: '3px 10px', borderRadius: 20, marginBottom: 10,
+        }}>
+          {person.role}
+        </div>
+        <a href={`mailto:${person.email}`} style={{
+          display: 'block', fontSize: '13px', color: 'var(--gray-400)',
+          transition: 'color 0.2s',
+        }}
+        onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
+        onMouseLeave={e => e.currentTarget.style.color = 'var(--gray-400)'}
+        >
+          {person.email}
+        </a>
+      </div>
+    )
+  }
 
   return (
     <section id="team" className="section" style={{ background: 'var(--gray-50)' }}>
@@ -949,6 +974,94 @@ function Team() {
 }
 
 function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState('idle')
+  const [feedback, setFeedback] = useState('')
+
+  const updateField = (field, value) => {
+    setForm(prev => ({ ...prev, [field]: value }))
+    if (feedback) setFeedback('')
+  }
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    if (status === 'sending') return
+
+    const name = form.name.trim()
+    const email = form.email.trim()
+    const message = form.message.trim()
+
+    if (!name) {
+      setStatus('error')
+      setFeedback('Name is required.')
+      return
+    }
+
+    if (!email || !isValidEmail(email)) {
+      setStatus('error')
+      setFeedback('Please enter a valid email address.')
+      return
+    }
+
+    if (!message) {
+      setStatus('error')
+      setFeedback('Message is required.')
+      return
+    }
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus('error')
+      setFeedback('Email service is not configured yet. Add the EmailJS environment variables and rebuild the app.')
+      return
+    }
+
+    setStatus('sending')
+    setFeedback('')
+
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: {
+            to_email: CONTACT_EMAIL,
+            from_name: name,
+            from_email: email,
+            reply_to: email,
+            message,
+          },
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Email service request failed.')
+      }
+
+      setForm({ name: '', email: '', message: '' })
+      setStatus('success')
+      setFeedback('Your message has been sent successfully.')
+    } catch (error) {
+      setStatus('error')
+      setFeedback('Sorry, the message could not be sent. Please try again later.')
+    }
+  }
+
+  const inputStyle = {
+    width: '100%', padding: '12px 16px', borderRadius: 'var(--radius-sm)',
+    border: '1px solid var(--gray-200)', background: 'var(--white)',
+    fontFamily: 'var(--font-body)', fontSize: '14px', outline: 'none',
+    transition: 'border-color 0.2s',
+  }
+
   return (
     <section id="contact" className="section">
       <div className="container">
@@ -998,31 +1111,65 @@ function Contact() {
             border: '0.5px solid var(--gray-200)', padding: '40px',
           }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', marginBottom: 20 }}>Send a Message</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {['Your Name', 'Your Email'].map(ph => (
-                <input key={ph} type={ph.includes('Email') ? 'email' : 'text'} placeholder={ph} style={{
-                  width: '100%', padding: '12px 16px', borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--gray-200)', background: 'var(--white)',
-                  fontFamily: 'var(--font-body)', fontSize: '14px', outline: 'none',
-                  transition: 'border-color 0.2s',
-                }}
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }} noValidate>
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={e => updateField('name', e.target.value)}
+                disabled={status === 'sending'}
+                aria-label="Your name"
+                style={inputStyle}
                 onFocus={e => e.target.style.borderColor = 'var(--accent)'}
                 onBlur={e => e.target.style.borderColor = 'var(--gray-200)'}
-                />
-              ))}
-              <textarea placeholder="Your Message" rows={4} style={{
-                width: '100%', padding: '12px 16px', borderRadius: 'var(--radius-sm)',
-                border: '1px solid var(--gray-200)', background: 'var(--white)',
-                fontFamily: 'var(--font-body)', fontSize: '14px', outline: 'none',
-                resize: 'vertical', transition: 'border-color 0.2s',
-              }}
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={e => updateField('email', e.target.value)}
+                disabled={status === 'sending'}
+                aria-label="Your email"
+                style={inputStyle}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+                onBlur={e => e.target.style.borderColor = 'var(--gray-200)'}
+              />
+              <textarea
+                placeholder="Your Message"
+                rows={4}
+                value={form.message}
+                onChange={e => updateField('message', e.target.value)}
+                disabled={status === 'sending'}
+                aria-label="Your message"
+                style={{ ...inputStyle, resize: 'vertical' }}
               onFocus={e => e.target.style.borderColor = 'var(--accent)'}
               onBlur={e => e.target.style.borderColor = 'var(--gray-200)'}
               />
-              <button className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>
-                Send Message
+              {feedback && (
+                <div
+                  role={status === 'error' ? 'alert' : 'status'}
+                  style={{
+                    fontSize: '13px',
+                    color: status === 'error' ? 'var(--red)' : 'var(--green)',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {feedback}
+                </div>
+              )}
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={status === 'sending'}
+                style={{
+                  alignSelf: 'flex-start',
+                  opacity: status === 'sending' ? 0.65 : 1,
+                  cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                }}
+              >
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
