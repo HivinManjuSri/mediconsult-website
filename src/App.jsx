@@ -10,7 +10,7 @@ const CONTACT_EMAIL = 'hivinmanjusri@gmail.com'
 /* SITE CONTENT - Replace this object for other groups */
 const SITE = {
   projectTitle: 'MEDIconsult',
-  projectSubtitle: 'Doctor Verification for Online Consultations',
+  projectSubtitle: 'Zero Trust Architecture in Remote Healthcare Using Multi-Modal Biometrics',
   projectTagline: 'A Zero Trust telehealth platform that continuously verifies clinicians so patients can trust who is on the other side of the consultation.',
   groupNo: '25-26J-046',
   institution: 'Sri Lanka Institute of Information Technology (SLIIT)',
@@ -194,6 +194,7 @@ const SITE = {
   ],
 
   documents: [
+    { title: 'TAF', type: 'PDF', status: 'available', url: 'https://mysliit-my.sharepoint.com/:b:/g/personal/it22602664_my_sliit_lk/IQCVKus56tPXR5NLLresyTqyASkXT-3gOO4GLkxgS8DcZkU?e=bC1yl6' },
     {
       title: 'Project Proposal',
       type: 'PDF',
@@ -420,11 +421,8 @@ function Hero({ scrollTo }) {
             marginBottom: 24,
           }}>
             {SITE.projectTitle}
-            <span style={{ display: 'block', color: 'var(--accent-light)', fontWeight: 700 }}>
-              Continuous Doctor Verification
-            </span>
             <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontWeight: 400, fontSize: '60%' }}>
-              for Remote Consultations
+              {SITE.projectSubtitle}
             </span>
           </h1>
 
