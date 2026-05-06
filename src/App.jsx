@@ -213,7 +213,7 @@ const SITE = {
     { title: 'Proposal Presentation', date: 'Aug 2024', status: 'available', url: 'https://docs.google.com/presentation/d/1a03uzNqkGAerf57tM_2Y8pQx5dCwsgU_/edit?usp=sharing&ouid=113698697415352410216&rtpof=true&sd=true' },
     { title: 'Progress Presentation I', date: 'Nov 2024', status: 'available', url: 'https://docs.google.com/presentation/d/1o47gejtrDAXjdi5LWFkQVl-blIYodMgi/edit?usp=sharing&ouid=113698697415352410216&rtpof=true&sd=true' },
     { title: 'Progress Presentation II', date: 'Mar 2025', status: 'available', url: 'https://docs.google.com/presentation/d/1fRkMGmiOk01h2zWDiD9jvA4cnBKkmKHi/edit?usp=sharing&ouid=113698697415352410216&rtpof=true&sd=true' },
-    { title: 'Final Presentation', date: 'Jun 2025', status: 'pending', url: '#' },
+    { title: 'Final Presentation', date: 'Jun 2025', status: 'available', url: 'https://mysliit-my.sharepoint.com/:p:/g/personal/it22602664_my_sliit_lk/IQB2BYcLtk1zQ5UCjSpXMoy-AbxCsIKlwZcC6xwVTHwoYJY?e=G7aoXr' },
   ],
 
   team: [
@@ -960,15 +960,15 @@ function Team() {
           subtitle={`Final year research group ${SITE.groupNo} - ${SITE.department}, ${SITE.institution}.`}
         />
         <div style={{ marginBottom: 40 }}>
-          <div style={{ fontSize: '13px', color: 'var(--gray-400)', marginBottom: 16, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Group Members</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
-            {members.map(m => <MemberCard key={m.name} person={m} />)}
-          </div>
-        </div>
-        <div>
           <div style={{ fontSize: '13px', color: 'var(--gray-400)', marginBottom: 16, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Supervisors</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
             {supervisors.map(m => <MemberCard key={m.name} person={m} />)}
+          </div>
+        </div>
+        <div>
+          <div style={{ fontSize: '13px', color: 'var(--gray-400)', marginBottom: 16, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Group Members</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+            {members.map(m => <MemberCard key={m.name} person={m} />)}
           </div>
         </div>
       </div>
