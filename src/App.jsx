@@ -195,6 +195,8 @@ const SITE = {
 
   documents: [
     { title: 'TAF', type: 'PDF', status: 'available', url: 'https://mysliit-my.sharepoint.com/:b:/g/personal/it22602664_my_sliit_lk/IQCVKus56tPXR5NLLresyTqyASkXT-3gOO4GLkxgS8DcZkU?e=bC1yl6' },
+    { title: 'Checklist 1', type: 'PDF', status: 'available', url: 'https://mysliit-my.sharepoint.com/:b:/g/personal/it22602664_my_sliit_lk/IQARxxleOhF-RJY1E-UVDHAcAf-8JwXULDQPJD8nLB-emsM?e=KKIjlu' },
+    { title: 'Checklist 2', type: 'PDF', status: 'available', url: 'https://mysliit-my.sharepoint.com/:b:/g/personal/it22602664_my_sliit_lk/IQC5Sp18ONqeSr5-RW5czq06AexaSJOPCJbLOubgXw99TD0?e=k6Iga6' },
     {
       title: 'Project Proposal',
       type: 'PDF',
@@ -206,7 +208,7 @@ const SITE = {
         { name: 'Pavani Rozairo', id: 'IT22194008', url: 'https://drive.google.com/file/d/12Q1jhlo955eFB-ckU2HRUb4j_3MGOOTG/view?usp=sharing' },
       ],
     },
-    { title: 'Research Paper', type: 'PDF', status: 'pending', url: '#' },
+    { title: 'Research Paper', type: 'PDF', status: 'available', url: 'https://drive.google.com/file/d/1PkEd4cr1eaIJctWTJI3gwGbsFxwX7cB1/view?usp=sharing' },
     { title: 'Final Report', type: 'PDF', status: 'pending', url: '#' },
   ],
 
